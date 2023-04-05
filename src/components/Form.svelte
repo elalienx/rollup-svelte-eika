@@ -7,12 +7,9 @@
   function onSubmit(event) {
     event.preventDefault()
 
-    const newTodo = { name: name, price: price, checked: false }
+    const newTodo = { id: $todos.length, name: name, price: price, checked: false }
 
-    todos. update((todos)=>{
-      console.log(newTodo)
-      return [...todos, newTodo]
-    })
+    todos.update((todos) => [...todos, newTodo])
   }
 </script>
 

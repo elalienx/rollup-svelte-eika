@@ -2,14 +2,18 @@
   import Form from "./components/Form.svelte"
   import List from "./components/List.svelte"
   import {todos} from "./stores/Todos"
+
+  let isChecked = false
 </script>
 
 <main>
-  <h1>Welcome to EIKA 6</h1>
+  <h1>Welcome to EIKA 7</h1>
   <Form/>
   <List items={$todos.filter(item => !item.checked)}/>
-  <hr/>
-  <List items={$todos.filter(item => item.checked)}/>
+  <button on:click={() => isChecked = !isChecked}>Show adquired items</button>
+  {#if isChecked}
+    <List items={$todos.filter(item => item.checked)}/>
+  {/if}
 </main>
 
 <style>
