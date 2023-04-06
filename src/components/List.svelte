@@ -4,9 +4,9 @@
     export let items;
 </script>
 
+{#if items.length == 0}<p>Nothing to show</p>{/if}
 <ul>
-    {#if items.length == 0}<p>Nothing to show</p>{/if}
-	{#each items as item}
-		<Item item={item} />
+    {#each items as item}
+    <Item item={item} />
 	{/each}
 </ul>

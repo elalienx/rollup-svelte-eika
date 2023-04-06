@@ -3,17 +3,19 @@
   import List from "./components/List.svelte"
   import {todos} from "./stores/Todos"
 
+  $: pending = $todos.filter(item => !item.checked)
+  $: adquired = $todos.filter(item => item.checked)
   let isChecked = false
 </script>
 
 <main>
   <h1>Welcome to EIKA 7</h1>
   <Form/>
-  <List items={$todos.filter(item => !item.checked)}/>
-  <button on:click={() => isChecked = !isChecked}>Show adquired items</button>
-  {#if isChecked}
-    <List items={$todos.filter(item => item.checked)}/>
-  {/if}
+  <List items={pending}/>
+  <button on:click={() => isChecked = !isChecked}>
+	{isChecked ? "Hide" : "Show"} adquired items
+  </button>
+  {#if isChecked} <List items={adquired}/> {/if}
 </main>
 
 <style>
