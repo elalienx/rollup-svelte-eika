@@ -1,6 +1,7 @@
 <script>
   import Form from "./components/Form.svelte"
   import List from "./components/List.svelte"
+  import { modalContent } from "./stores/ModalContent";
   import {todos} from "./stores/Todos"
 
   let isChecked = false
@@ -8,8 +9,11 @@
 
 <main>
   <h1>Welcome to EIKA 7</h1>
-  <Form/>
   <List items={$todos.filter(item => !item.checked)}/>
+  <hr/>
+  {$modalContent}
+  <hr/>
+  <!-- <button on:click={() => modalContent.set(Form)}>Add item</button> -->
   <button on:click={() => isChecked = !isChecked}>Show adquired items</button>
   {#if isChecked}
     <List items={$todos.filter(item => item.checked)}/>
