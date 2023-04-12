@@ -3,9 +3,10 @@
   import List from "./components/List.svelte"
   import {todos} from "./stores/Todos"
 
+  let isChecked = true
+
   $: pending = $todos.filter(item => !item.checked)
   $: adquired = $todos.filter(item => item.checked)
-  let isChecked = false
 </script>
 
 <main>

@@ -5,11 +5,10 @@
   let price = "99"
 
   function onSubmit(event) {
-    event.preventDefault()
-
     const newTodo = { id: $todos.length, name: name, price: price, checked: false }
-
+    
     todos.update((todos) => [...todos, newTodo])
+    event.preventDefault()
   }
 </script>
 

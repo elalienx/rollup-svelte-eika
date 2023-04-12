@@ -6,8 +6,8 @@
   function updateItem(item) {
     const currentId = item.id;
     const newItem = { ...item };
+    
     newItem.checked = !item.checked;
-
     todos.update(todos => {
       const index = todos.findIndex(item => item.id === currentId);
 
